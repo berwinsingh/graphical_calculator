@@ -70,8 +70,13 @@ button{
     border-radius: 10px !important;
 }
 
-#reset, #backspace,#equal,#decimal{
-    background-color: aliceblue;
+#reset,#equal{
+    background-color: rgb(104, 23, 23);
+    color: aliceblue !important;
+}
+
+.operation,#backspace,#decimal{
+    background-color: aliceblue !important;
     color: black;
 }
 
