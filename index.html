@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Graphical Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+    <div class="flex main-container">
+        <div class="mathematical-value flex">
+            <!-- Value will be added dynamically.--><h2></h2>
+            <input type="text" id="math-operation" style="margin-bottom: 5px;" readonly>
+            <div class="number-buttons grid">
+                <button class="reset-vals" id="reset">AC</button>
+                <button class="reset-vals" id="backspace"><svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000" viewBox="0 0 192 192">
+                        <path fill-rule="evenodd" d="M41.4971 43H181.997c1.105 0 2.001.8954 2.001 2v102c0 1.105-.896 2-2.001 2H41.4971c-.6937 0-1.3379-.359-1.7023-.949L8.30041 97.0507c-.3977-.6441-.39769-1.4573 0-2.1013l31.49439-51c.3644-.5901 1.0086-.9494 1.7023-.9494zm140.4999-8H41.4971c-3.4684 0-6.6893 1.7963-8.5113 4.7468l-31.49443 51c-1.988493 3.22-1.988493 7.2864 0 10.5062l31.49443 51c1.822 2.951 5.0429 4.747 8.5113 4.747H181.997c5.525 0 10.003-4.477 10.003-10V45c0-5.5228-4.478-10-10.003-10z"/>
+                        <path d="M106.001 101.657l18.384 18.385c1.562 1.562 4.095 1.562 5.657 0 1.562-1.563 1.562-4.095 0-5.657l-18.384-18.3845 18.385-18.385c1.562-1.562 1.562-4.0947 0-5.6568s-4.095-1.5621-5.657 0l-18.385 18.3849-18.3855-18.3853c-1.5621-1.5621-4.0947-1.5621-5.6568 0s-1.5621 4.0948 0 5.6569l18.3853 18.3853-18.3846 18.3845c-1.5621 1.562-1.5621 4.095 0 5.657 1.5621 1.562 4.0948 1.562 5.6569 0l18.3847-18.385z"/>
+                  </svg></button>
+                <button id="percentage" class="operation">%</button>
+                <button id="divide" class="operation">/</button>
+                <button id="one" class="number">1</button>
+                <button id="two" class="number">2</button>
+                <button id="three" class="number">3</button>
+                <button id="multiply" class="operation">X</button>
+                <button id="four" class="number">4</button>
+                <button id="five" class="number">5</button>
+                <button id="six" class="number">6</button>
+                <button id="subtract" class="operation">-</button>
+                <button id="seven" class="number">7</button>
+                <button id="eight" class="number">8</button>
+                <button id="nine" class="number">9</button>
+                <button id="add" class="operation">+</button>
+                <div class="blank-div"></div>
+                <button id="zero" class="number">0</button>
+                <button id="decimal">.</button>
+                <button id="equal" class="operation">=</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="./script.js"></script>
+</body>
+</html>
