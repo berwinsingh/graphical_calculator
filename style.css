@@ -70,6 +70,10 @@ button{
     border-radius: 10px !important;
 }
 
+button:active{
+    scale: 0.9;
+}
+
 #reset,#equal{
     background-color: rgb(104, 23, 23);
     color: aliceblue !important;
