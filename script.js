@@ -9,6 +9,7 @@ let completeVal = "";
 let num1 = [];
 let num2 = [];
 let sign = "";
+let displaySign = "";
 
 //An object that stores arrow functions for all mathematical operations, we will call this object to run operations
 const methods = {
@@ -21,15 +22,21 @@ const methods = {
 
 //Extracting the number 1 value from the element and displaying it inside the input
 for (let i = 0; i < numbers.length; i++) {
-    if(sign===""){    
-        numbers[i].addEventListener("click", () => {
-          num1.push(numbers[i].textContent); //Storing the multiple values inside of an array
-          const joinedValue = num1.join(""); //Creating a new variable that joins the array and stores the value
-          completeVal = joinedValue;
-          screen.value = completeVal;
-        });
-    }
-}
+    numbers[i].addEventListener("click", () => {
+      if (sign === "") {
+        num1.push(numbers[i].textContent);
+      } 
+      
+      else {
+        num2.push(numbers[i].textContent);
+      }
+
+      const joinedValue = num1.join("");
+      const joinedValue2 = num2.join("");
+      completeVal = joinedValue + " " + displaySign + " " + joinedValue2;
+      screen.value = completeVal;
+    });
+  }
 
 //Figuring out the operator that the user wants to perform and storing inside of a variable
 for (let j = 0; j < operator.length; j++) { 
@@ -37,23 +44,10 @@ for (let j = 0; j < operator.length; j++) {
     if(sign===""){
         const op = operator[j].getAttribute("id");
         sign = op;
-        completeVal += " " + operator[j].textContent;
+        displaySign = operator[j].textContent;
     }
     screen.value = completeVal;
   });
-}
-
-
-//Extracting Number 2 value
-for (let z=0; z<numbers.length; z++){
-    if(sign!=""){    
-        numbers[z].addEventListener("click", () => {
-          num2.push(numbers[z].textContent); //Storing the multiple values inside of an array
-          const joinedValue2 = num1.join(""); //Creating a new variable that joins the array and stores the value
-          completeVal += joinedValue2;
-          screen.value = completeVal;
-        });
-    }
 }
 
 //Adding Equal sign button functionality
@@ -68,6 +62,7 @@ clear.addEventListener("click", () => {
   num2 = [];
   completeVal = "";
   sign="";
+  displaySign ="";
 });
 
 //Adding Backspace functionality
