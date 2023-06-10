@@ -67,7 +67,7 @@ input[type = text]:focus{
 button{
     border: none;
     background-color: rgb(41, 41, 41);
-    font-size: 1.75rem !important;
+    font-size: 2rem !important;
     border-radius: 10px !important;
 }
 
