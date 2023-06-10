@@ -52,15 +52,16 @@ h2{
 
 input[type = text]{
     height: 200px;
+    width: 412px;
     border: none;
     background-color: transparent;
     text-align: right;
     padding-inline: 10px;
+    font-size: 50px;
 }
 
 input[type = text]:focus{
     outline: none;
-    
 }
 
 button{
