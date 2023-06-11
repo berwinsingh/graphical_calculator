@@ -1,6 +1,7 @@
 const numbers = document.querySelectorAll(".number");
 const operator = document.querySelectorAll(".operation");
 const h6 = document.querySelector("h6");
+const backspace = document.querySelector(".reset-vals");
 const screen = document.getElementById("math-operation");
 const clear = document.getElementById("reset");
 const equal = document.getElementById("equal");
@@ -45,11 +46,23 @@ for (let i = 0; i < numbers.length; i++) {
 //Figuring out the operator that the user wants to perform and storing inside of a variable
 for (let j = 0; j < operator.length; j++) { 
   operator[j].addEventListener("click", () => {
-    if(sign==="" && num1 != null){
+    if(sign===""){
         sign = operator[j].getAttribute("id");
         displaySign = operator[j].textContent;
         completeVal += displaySign;
         screen.value = completeVal;
+    }
+    
+    else {
+      const calc = completeVal.split(" ");
+      cal1 = +calc[0];
+      cal2 = +calc[2];
+      calculate(cal1,cal2)
+
+      sign = operator[j].getAttribute("id");
+      displaySign = operator[j].textContent;
+      screen.value = sol + " " + displaySign + " " + num2;
+      console.log(sign);
     }
   });
 }
@@ -60,22 +73,34 @@ equal.addEventListener("click",()=>{
   cal1 = +callVal[0];
   cal2 = +callVal[2];
 
-  if(methods.hasOwnProperty(sign)){
-    sol = methods[sign](cal1,cal2);
-    screen.value = sol;
-    h6Val = completeVal;
-    h6.textContent = h6Val;
-    //Resetting all the other values to ensure proper multiple calculations
-    sign ="";
-    num1 = [];
-    num2 = [];
-    completeVal = "";
-    displaySign = "";
-  }
-  else{
-    console.log("invalid");
-  }
+  calculate(cal1,cal2);
 });
+
+
+//Creating a function to calculate the values inputed at various steps to avoid repeating myself
+function calculate (cal1,cal2){
+    if(methods.hasOwnProperty(sign)){
+      if (cal2 === 0 && sign === "divide"){ //Conditional checks if the 2nd value inputed is 0 and does not call the object instead shows a warning
+        h6.textContent = "Please enter a valid input";
+      }
+      else {
+        sol = methods[sign](cal1,cal2);
+        screen.value = sol;
+        h6Val = completeVal;
+        h6.textContent = h6Val;
+  
+        //Resetting all the other values to ensure proper multiple calculations
+        sign ="";
+        num1 = [];
+        num2 = [];
+        displaySign = "";
+      }
+    }
+
+    else{
+      console.log("Invalid");
+    }
+  };
 
 //Resetting Values back to 0 with AC button
 clear.addEventListener("click", () => {
@@ -89,3 +114,6 @@ clear.addEventListener("click", () => {
 });
 
 //Adding Backspace functionality
+backspace.addEventListener("click",() => {
+  screen.value = screen.substr(0, screen.length - 1);
+});
