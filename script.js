@@ -14,7 +14,7 @@ let displaySign = "";
 
 let cal1 = "";
 let cal2 ="";
-let sol = "";
+let sol = []; //Converting to array to store multiple values to make it easier to display and calculate
 let h6Val = "";
 
 //An object that stores arrow functions for all mathematical operations, we will call this object to run operations
@@ -61,7 +61,7 @@ for (let j = 0; j < operator.length; j++) {
 
       sign = operator[j].getAttribute("id");
       displaySign = operator[j].textContent;
-      screen.value = sol + " " + displaySign + " " + num2;
+      // screen.value = sol[sol.length-1] + " " + displaySign + " " + num2;
       console.log(sign);
     }
   });
@@ -80,40 +80,40 @@ equal.addEventListener("click",()=>{
 //Creating a function to calculate the values inputed at various steps to avoid repeating myself
 function calculate (cal1,cal2){
     if(methods.hasOwnProperty(sign)){
-      if (cal2 === 0 && sign === "divide"){ //Conditional checks if the 2nd value inputed is 0 and does not call the object instead shows a warning
+      if (isNaN(cal2)){
+        cal2 = 0;
+      }
+      else if (cal2 === 0 && sign === "divide"){ //Conditional checks if the 2nd value inputed is 0 and does not call the object instead shows a warning
         h6.textContent = "Please enter a valid input";
       }
-      else {
-        sol = methods[sign](cal1,cal2);
-        screen.value = sol;
-        h6Val = completeVal;
-        h6.textContent = h6Val;
-  
-        //Resetting all the other values to ensure proper multiple calculations
-        sign ="";
-        num1 = [];
-        num2 = [];
-        displaySign = "";
-      }
-    }
 
-    else{
-      console.log("Invalid");
-    }
+      sol.push(methods[sign](cal1,cal2));
+      screen.value = sol[sol.length - 1];
+      h6Val = completeVal;
+      h6.textContent = h6Val;
+
+      //Resetting all the other values to ensure proper multiple calculations
+      sign ="";
+      num1 = [];
+      num2 = [];
+      displaySign = "";
+      completeVal = "";
+  }
   };
 
 //Resetting Values back to 0 with AC button
 clear.addEventListener("click", () => {
   screen.value = "";
-  num1 = []; //Resetting the num1 & num2 array values
+  num1 = [];
   num2 = [];
   completeVal = "";
   sign="";
   displaySign ="";
   h6.textContent = "";
+  sol = [];
 });
 
 //Adding Backspace functionality
-backspace.addEventListener("click",() => {
-  screen.value = screen.substr(0, screen.length - 1);
-});
+// backspace.addEventListener("click",() => {
+//   screen.value = screen.substr(0, screen.length - 1);
+// });
