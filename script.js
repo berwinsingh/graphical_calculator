@@ -93,7 +93,7 @@ function calculate (cal1,cal2){
 
       //Resetting all the other values to ensure proper multiple calculations
       sign ="";
-      num1 = [];
+      num1 = sol;
       num2 = [];
       displaySign = "";
       completeVal = "";
