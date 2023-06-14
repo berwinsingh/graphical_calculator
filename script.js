@@ -58,10 +58,6 @@ for (let j = 0; j < operator.length; j++) {
       cal1 = +calc[0];
       cal2 = +calc[2];
       calculate(cal1,cal2)
-
-      sign = operator[j].getAttribute("id");
-      displaySign = operator[j].textContent;
-      // console.log(sign);
     }
   });
 }
