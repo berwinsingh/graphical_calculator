@@ -30,7 +30,7 @@ const methods = {
 for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener("click", () => {
       if (sign === "") {
-        num1.push(numbers[i].textContent);
+          num1.push(numbers[i].textContent);
       } 
       
       else {
@@ -61,8 +61,7 @@ for (let j = 0; j < operator.length; j++) {
 
       sign = operator[j].getAttribute("id");
       displaySign = operator[j].textContent;
-      // screen.value = sol[sol.length-1] + " " + displaySign + " " + num2;
-      console.log(sign);
+      // console.log(sign);
     }
   });
 }
@@ -114,6 +113,3 @@ clear.addEventListener("click", () => {
 });
 
 //Adding Backspace functionality
-// backspace.addEventListener("click",() => {
-//   screen.value = screen.substr(0, screen.length - 1);
-// });
