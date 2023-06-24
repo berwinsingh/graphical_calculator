@@ -23,16 +23,13 @@ const methods = {
   subtract: (a, b) => a - b,
   multiply: (a, b) => a * b,
   divide: (a, b) => a / b,
-  remainder: (a, b) => a % b,
+  remainder: (a, b) => a % b
 };
 
 //Extracting the number 1 & 2 array value from the element and displaying it inside the input
 for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener("click", () => {
       if (sign === "") {
-        if(num1===sol){
-          num1 = [sol[sol.length-1]];
-        }
           num1.push(numbers[i].textContent);
       } 
       
@@ -81,7 +78,7 @@ function calculate (cal1,cal2){
       if (isNaN(cal2)){
         cal2 = 0;
       }
-      else if (cal2 === 0 && sign === "divide"){ //Conditional checks if the 2nd value inputed is 0 and does not call the object instead shows a warning
+      if (cal2 === 0 && sign === "divide"){ //Conditional checks if the 2nd value inputed is 0 and does not call the object instead shows a warning
         h6.textContent = "Please enter a valid input";
       }
 
@@ -90,13 +87,13 @@ function calculate (cal1,cal2){
       h6Val = completeVal;
       h6.textContent = h6Val;
 
-      //Resetting all the other values to ensure proper multiple calculations
+      //Resetting/Reassigning all the other values to ensure proper multiple calculations
       sign ="";
       num1 = [sol[sol.length - 1]];
       num2 = [];
       displaySign = "";
       completeVal = "";
-  }
+    }
   };
 
 //Resetting Values back to 0 with AC button
